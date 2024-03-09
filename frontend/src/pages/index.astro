@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Background from '../components/Background.astro'
+---
+
+<Layout title="Jonatan Mazo | Portfolio">
+	<main>
+		<Background />
+		<h1>Jonatan mazo</h1>
+	</main>
+</Layout>
+
+<style>
+	main {
+		position: relative;
+		width: 100dvw;
+		height: 100dvh;
+		max-width: 1920px;
+		margin: auto;
+		padding: var(--b); /* space for the border */
+		box-sizing: border-box;
+		display: flex;
+		flex-flow: column;
+	}
+	h1 {
+		margin-bottom: 1em;
+		font-weight: 300;
+		text-align: center;
+		font-size: 4rem;
+		line-height: 4rem;
+		font-family: 'Aileron';
+		color: var(--color-black);
+		z-index: 10;
+	}
+</style>

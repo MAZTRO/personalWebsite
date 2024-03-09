@@ -1,0 +1,105 @@
+---
+
+---
+
+<div class='backgroundContainer'>
+  <div class='wrapper'>
+    <div class='cornerTL'></div>
+    <div class='cornerTR'></div>
+    <div class='cornerBR'></div>
+    <div class='cornerBL'></div>
+  </div>
+</div>
+
+<style>
+  .backgroundContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 98%;
+    height: 98%;
+    max-width: 1920px;
+    margin: auto;
+    display: flex;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .backgroundContainer .wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+  }
+  .backgroundContainer .wrapper div {
+    --l: 15px;
+    --b: 2px;
+    --r: 10px;
+
+    position: absolute;
+    width: var(--l);
+    height: var(--l);
+    background-color: var(--color-black);
+  }
+
+  .backgroundContainer .wrapper div.cornerTL {
+    top: 0%;
+    left: 0%;
+    border-radius: var(--r) 0 0 0;
+  }
+  .backgroundContainer .wrapper div.cornerTL::before {
+    content: '';
+    position: absolute;
+    top: var(--b);
+    left: var(--b);
+    width: calc(var(--l) * 1.2);
+    height: calc(var(--l) * 1.2);
+    background-color: var(--color-white);
+    border-radius: calc(var(--r) / 1.5) 0 0 0;
+  }
+  .backgroundContainer .wrapper div.cornerTR {
+    top: 0%;
+    right: 0%;
+    border-radius: 0 var(--r) 0 0;
+  }
+  .backgroundContainer .wrapper div.cornerTR::before {
+    content: '';
+    position: absolute;
+    top: var(--b);
+    right: var(--b);
+    width: calc(var(--l) * 1.2);
+    height: calc(var(--l) * 1.2);
+    background-color: var(--color-white);
+    border-radius: 0 calc(var(--r) / 1.5) 0  0;
+  }
+  .backgroundContainer .wrapper div.cornerBR {
+    bottom: 0%;
+    right: 0%;
+    border-radius: 0 0 var(--r) 0;
+  }
+  .backgroundContainer .wrapper div.cornerBR::before {
+    content: '';
+    position: absolute;
+    bottom: var(--b);
+    right: var(--b);
+    width: calc(var(--l) * 1.2);
+    height: calc(var(--l) * 1.2);
+    background-color: var(--color-white);
+    border-radius: 0 0 calc(var(--r) / 1.5)  0;
+  }
+  .backgroundContainer .wrapper div.cornerBL {
+    bottom: 0%;
+    left: 0%;
+    border-radius: 0 0 0 var(--r);
+  }
+  .backgroundContainer .wrapper div.cornerBL::before {
+    content: '';
+    position: absolute;
+    bottom: var(--b);
+    left: var(--b);
+    width: calc(var(--l) * 1.2);
+    height: calc(var(--l) * 1.2);
+    background-color: var(--color-white);
+    border-radius: 0 0 0 calc(var(--r) / 1.5);
+  }
+</style>
