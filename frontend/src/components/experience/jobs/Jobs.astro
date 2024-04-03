@@ -1,0 +1,156 @@
+---
+---
+
+<section class="jobsCont">
+  <button class="butonAction">
+    <p>My Jobs</p>
+    <div class='separator1' />
+    <div class='separator2' />
+    <div class='separator3' />
+    <div class='diagonal1Up' />
+    <div class='diagonal2Up' />
+    <div class='lineUp' />
+  </button>
+</section>
+
+<style>
+  .jobsCont {
+    width: 100%;
+    margin: 20px auto;
+    display: flex;
+    flex-flow: column;
+  }
+
+  .jobsCont .butonAction {
+    position: relative;
+    margin: auto;
+    padding: 10px 20px;
+    background-color: #FFF0;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    border: 1px solid var(--color-black);
+    transition: 150ms 150ms ease-in;
+    cursor: pointer;
+  }
+
+  .jobsCont .butonAction::before,
+  .jobsCont .butonAction::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 0px;
+    height: 0px;
+    background-color: var(--color-black);
+    border-radius: 20px;
+    transition: 150ms 150ms ease-in;
+  }
+
+  .jobsCont .butonAction:hover {
+    padding: 10px 60px;
+  }
+
+  .jobsCont .butonAction:hover::before {
+    width: 5px;
+    height: 5px;
+  }
+
+  .jobsCont .butonAction p {
+    width: 100%;
+    margin: auto;
+    color: var(--color-black);
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .jobsCont .butonAction:hover p {
+    font-weight: 800;
+  }
+
+  /* -------------------------------- */
+
+  .jobsCont .butonAction .separator1,
+  .jobsCont .butonAction .separator2,
+  .jobsCont .butonAction .separator3 {
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    width: 0%;
+    height: 10px;
+    margin: auto;
+    background-color: var(--color-white);
+    transition: 150ms 150ms ease-in;
+    z-index: 3;
+  }
+
+  .jobsCont .butonAction .separator1 {
+    z-index: 1;
+  }
+
+  .jobsCont .butonAction .separator2 {
+    height: 6px;
+    top: 0px;
+  }
+
+  .jobsCont .butonAction .separator3 {
+    height: 6px;
+    top: -10px;
+  }
+
+  .jobsCont .butonAction:hover .separator1 {
+    width: 40%;
+    left: 30%;
+  }
+
+  .jobsCont .butonAction:hover .separator2,
+  .jobsCont .butonAction:hover .separator3 {
+    width: 60%;
+    left: 20%;
+  }
+
+  .jobsCont .butonAction .diagonal1Up,
+  .jobsCont .butonAction .diagonal2Up {
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    width: 0px;
+    height: 5px;
+    margin: auto;
+    background-color: var(--color-black);
+    transform: rotate(-40deg);
+    transition: 150ms 150ms ease-in;
+    z-index: 2;
+  }
+
+  .jobsCont .butonAction .diagonal2Up {
+    transform: rotate(40deg);
+  }
+
+  .jobsCont .butonAction:hover .diagonal1Up {
+    left: 29%;
+    width: 15px;
+  }
+
+  .jobsCont .butonAction:hover .diagonal2Up {
+    left: 63%;
+    width: 15px;
+  }
+
+  .jobsCont .butonAction .lineUp {
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    width: 0%;
+    height: 1px;
+    margin: auto;
+    background-color: var(--color-black);
+    transition: 150ms 150ms ease-in;
+    z-index: 5;
+  }
+
+  .jobsCont .butonAction:hover .lineUp {
+    left: 35%;
+    width: 30%;
+  }
+</style>

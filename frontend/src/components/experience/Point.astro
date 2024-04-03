@@ -11,13 +11,14 @@
 <style>
   .mainCircle {
     position: absolute;
-    top: 10%;
+    top: 43px;
     left: 3%;
     width: 20px;
     height: 20px;
-    background-color: var(--color-black);
-    border-radius: 30px;
-    margin: auto;
+    border-radius: 10px 0px 5px 0px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-black);
+    margin: 1px auto;
     display: flex;
     transform: translate(-50%, -50%);
     z-index: 1;
@@ -25,16 +26,21 @@
 
   .mainCircle .innerCircle {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 18px;
-    height: 18px;
+    top: 20%;
+    left: 20%;
+    width: 10px;
+    height: 10px;
+    border: none;
     background-color: var(--color-white);
+    border-right: 1px solid var(--color-black);
     border-radius: 30px;
     margin: auto;
     display: flex;
     transform: translate(-50%, -50%);
     z-index: 5;
+
+    -webkit-animation: rotate-90-cw 10s ease infinite;
+	        animation: rotate-90-cw 10s ease infinite;
   }
 
   .mainCircle .centerCircle {
@@ -43,7 +49,7 @@
     left: 50%;
     width: 5px;
     height: 5px;
-    background-color: var(--color-black);
+    background-color: var(--color-white);
     border-radius: 30px;
     margin: auto;
     display: flex;
@@ -56,7 +62,7 @@
     top: 150%;
     left: 35%;
     width: 1px;
-    height: 150%;
+    height: 100%;
     margin: auto;
     background-color: var(--color-black);
     transform: translate(-50%, -50%);
@@ -74,5 +80,26 @@
     transform: translate(-50%, -50%);
     z-index: 4;
   }
+
+@-webkit-keyframes rotate-90-cw {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes rotate-90-cw {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
 
 </style>

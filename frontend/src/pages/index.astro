@@ -2,14 +2,21 @@
 import Layout from '../layouts/Layout.astro';
 import Background from '../components/Background.astro'
 import Experience from '../components/experience/Experience.astro'
+import PersonalInfo from '../components/personalInfo/PersonalInfo.astro';
+import CirclePI from "../components/personalInfo/CirclePI.astro"
 ---
 
 <Layout title="Jonatan Mazo | Portfolio">
 	<main>
-		<Background />
+		<div class='backCont'>
+			<div class='backComp'>
+				<CirclePI />
+			</div>
+			<Background />
+		</div>
 		<section class="divisor">
 			<section class="left">
-				<h1>Jonatan mazo</h1>
+				<PersonalInfo />
 			</section>
 			<section class="right">
 				<Experience />
@@ -30,16 +37,27 @@ import Experience from '../components/experience/Experience.astro'
 		display: flex;
 		flex-flow: column;
 	}
-	h1 {
-		margin-bottom: 1em;
-		font-weight: 300;
-		text-align: center;
-		font-size: 4rem;
-		line-height: 4rem;
-		font-family: 'Aileron';
-		color: var(--color-black);
-		z-index: 10;
+
+	main .backCont {
+		position: absolute;
+		width: 100dvw;
+		height: 100dvh;
+		margin: auto;
+		display: flex;
+		overflow: hidden;
 	}
+
+	main .backCont .backComp {
+		position: absolute;
+		width: 100dvw;
+		height: 100dvh;
+		margin: auto;
+		display: flex;
+		background: #FFF0;
+    filter: blur(3px);
+	}
+
+	/* ============================== */
 
 	.divisor {
 		width: 100%;
@@ -53,7 +71,6 @@ import Experience from '../components/experience/Experience.astro'
 	.divisor .left {
 		width: 50%;
 		margin: auto;
-		background-color: tomato;
 
 	}
 
