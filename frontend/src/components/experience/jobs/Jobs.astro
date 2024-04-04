@@ -1,8 +1,9 @@
 ---
+import Background from '../../Background.astro'
 ---
 
 <section class="jobsCont">
-  <button class="butonAction">
+  <button id="butonAction" class="butonAction">
     <p>My Jobs</p>
     <div class='separator1' />
     <div class='separator2' />
@@ -11,7 +12,37 @@
     <div class='diagonal2Up' />
     <div class='lineUp' />
   </button>
+
+  <section id="modal" class="close">
+    <Background />
+    <button id="modalClose" class='modalClose'>
+      <div class='backG' />
+      <div class='circles' />
+    </button>
+    <section class="titleCont">
+      <h2>JOBS</h2>
+    </section>
+    <section class="modalCont">
+      <!-- Loque sea -->
+      <h2>Modal</h2>
+    </section>
+  </section>
 </section>
+
+<script>
+  const modal = document.getElementById('modal')
+  const btn = document.getElementById('butonAction')
+  const btnClose = document.getElementById('modalClose')
+
+  btn.addEventListener('click', (evt) => {
+    modal.classList.toggle('open')
+  })
+
+  btnClose.addEventListener('click', (evt) => {
+    modal.classList.toggle('open')
+  })
+
+</script>
 
 <style>
   .jobsCont {
@@ -30,7 +61,7 @@
     border: none;
     outline: none;
     border: 1px solid var(--color-black);
-    transition: 150ms 150ms ease-in;
+    transition: 100ms 100ms ease-in;
     cursor: pointer;
   }
 
@@ -44,7 +75,7 @@
     height: 0px;
     background-color: var(--color-black);
     border-radius: 20px;
-    transition: 150ms 150ms ease-in;
+    transition: 100ms 100ms ease-in;
   }
 
   .jobsCont .butonAction:hover {
@@ -80,7 +111,7 @@
     height: 10px;
     margin: auto;
     background-color: var(--color-white);
-    transition: 150ms 150ms ease-in;
+    transition: 100ms 100ms ease-in;
     z-index: 3;
   }
 
@@ -119,7 +150,7 @@
     margin: auto;
     background-color: var(--color-black);
     transform: rotate(-40deg);
-    transition: 150ms 150ms ease-in;
+    transition: 100ms 100ms ease-in;
     z-index: 2;
   }
 
@@ -145,12 +176,162 @@
     height: 1px;
     margin: auto;
     background-color: var(--color-black);
-    transition: 150ms 150ms ease-in;
+    transition: 100ms 100ms ease-in;
     z-index: 5;
   }
 
   .jobsCont .butonAction:hover .lineUp {
     left: 35%;
     width: 30%;
+  }
+
+  /* ===================================== */
+  /* ========== MODAL ==================== */
+
+  .jobsCont .close {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 97dvw;
+    height: 96dvh;
+    margin: auto;
+    display: none;
+    flex-flow: column;
+    z-index: 100;
+    transform: translate(-50%, -50%);
+  }
+
+  .jobsCont .open {
+    display: flex;
+  }
+
+  .jobsCont .modalClose {
+    position: absolute;
+    top: 2%;
+    right: 1.5%;
+    width: 30px;
+    height: 30px;
+    margin: auto;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .jobsCont .modalClose .backG {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    background-color: var(--color-red);
+    filter: blur(5px);
+    opacity: .6;
+    transform: translate(-50%, -50%);
+  }
+
+  .jobsCont .modalClose .circles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    border: 1px dashed var(--color-blackOp);
+    border-radius: 50%;
+    box-sizing: border-box;
+  }
+
+  .jobsCont .modalClose .circles:hover {
+    border: 1px dashed var(--color-black);
+    -webkit-animation: rotate360Pipes 12s infinite linear;
+	        animation: rotate360Pipes 12s infinite linear;
+  }
+
+  @-webkit-keyframes rotate360Pipes {
+    0% {
+      -webkit-transform: rotate(0);
+              transform: rotate(0);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }
+  @keyframes rotate360Pipes {
+    0% {
+      -webkit-transform: rotate(0);
+              transform: rotate(0);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }
+
+  .jobsCont .modalClose .circles::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70%;
+    height: 70%;
+    margin: auto;
+    border: 1px dashed var(--color-white);
+    border-radius: 50%;
+    box-sizing: border-box;
+    transform: translate(-50%, -50%);
+    opacity: .7;
+  }
+
+  /* --------------------------- */
+
+  .jobsCont .titleCont {
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    width: 40%;
+    height: 45px;
+    display: flex;
+    background:
+      repeating-linear-gradient(
+        60deg,
+        var(--color-white) 0%,
+        var(--color-blackOp) 0.2%,
+        var(--color-blackOp) 2%,
+        var(--color-white) 2.2%,
+        var(--color-white) 7%
+      );
+    z-index: 10;
+    transform: translate(-50%, -50%);
+  }
+
+  .jobsCont .titleCont h2 {
+    margin: auto;
+    padding: 5px 10%;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    background-color: var(--color-white);
+  }
+
+  .jobsCont .modalCont {
+    width: 97%;
+    height: calc(96% - 50px);
+    margin: auto;
+    padding-bottom: 50px;
+    display: flex;
+    flex-flow: column;
+    border-radius: 10px;
+    background-color: var(--color-white);
+    z-index: 5;
+    overflow: hidden;
+  }
+
+  .jobsCont .modalCont h2 {
+    margin: auto;
+    font-size: 3rem;
   }
 </style>
