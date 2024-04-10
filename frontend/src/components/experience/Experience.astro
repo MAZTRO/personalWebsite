@@ -1,0 +1,94 @@
+---
+import { data } from './data';
+import Point from './Point.astro'
+import DataPoint from './DataPoint.astro'
+import Jobs from './jobs/Jobs.astro'
+---
+
+<section class="experienceContainer">
+  <h2>Work experience</h2>
+  <div class='timeLineCont'>
+    {
+      data.map((item, idx) => {
+        const fDateY = new Date(item.fDate).getFullYear()
+        const lDateY = new Date(item.lDate).getFullYear()
+        const fDateM = new Date(item.fDate).getMonth()
+        const lDateM = new Date(item.lDate).getMonth()
+        const difTemp = (lDateM+12*lDateY)-(fDateM+12*fDateY) // Math.floor((lDate - fDate) / (1000*60*60*24))
+        return (
+          <div class={`pointCont point_${idx}`}>
+            <Point />
+            <DataPoint item={item} date={difTemp} />
+          </div>
+        )
+      })
+    }
+  </div>
+  <Jobs />
+</section>
+
+<style>
+  .experienceContainer {
+    width: 100%;
+    margin: auto;
+    padding: 5px 0px;
+    display: flex;
+    flex-flow: column;
+  }
+
+  .experienceContainer h2 {
+    margin: 10px auto 30px auto;
+		font-weight: 300;
+		text-align: center;
+		font-size: 2rem;
+		line-height: 2rem;
+		font-family: 'Aileron';
+    border-bottom: 1px solid var(--color-black);
+		color: var(--color-black);
+		z-index: 10;
+  }
+
+  .experienceContainer .timeLineCont {
+    position: relative;
+    width: 90%;
+    max-height: calc(70dvh - 52px);
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .experienceContainer {
+      margin: 20px auto;
+    }
+		.experienceContainer .timeLineCont {
+      position: relative;
+      width: 90%;
+      max-height: unset;
+      overflow-y: unset;
+      overflow-x: unset;
+    }
+	}
+
+  .experienceContainer .timeLineCont .pointCont {
+    position: relative;
+    width: calc(99% - 40px);
+    margin: 0 auto;
+    padding: 0px 0px 0px 40px;
+    display: flex;
+    flex-flow: column;
+  }
+
+  .experienceContainer .timeLineCont .pointCont::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 3%;
+    width: 1px;
+    height: 100%;
+    background-color: var(--color-black);
+    margin: auto;
+  }
+</style>

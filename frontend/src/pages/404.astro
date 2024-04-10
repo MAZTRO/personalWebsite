@@ -1,0 +1,742 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Background from '../components/Background.astro'
+import CirclePI from "../components/personalInfo/CirclePI.astro"
+---
+
+<Layout title="Jonatan Mazo | Portfolio | Page not found">
+  <main>
+    <div class='backCont'>
+      <div class='backComp'>
+        <CirclePI />
+      </div>
+      <Background />
+    </div>
+    <section class="mainCont">
+      <div class='card'>
+        <div class='heroCont'>
+          <div id="pathCont" class='pathCont' />
+          <h1 class="hero glitch layers" data-text="Location lost">Location lost</h1>
+        </div>
+        <p>System it's powering out, please reconnect to base code</p>
+        <a class="butonAction" href='/'>
+          <span>base code</span>
+          <div class='separator1' />
+          <div class='separator2' />
+          <div class='separator3' />
+          <div class='diagonal1Up' />
+          <div class='diagonal2Up' />
+          <div class='lineUp' />
+        </a>
+
+        <div class='bottomBar'>
+          <section class="titleCont" />
+          <div class='line1' />
+          <div class='centerBlock'>
+            <div class='line2' />
+            <div class='tap1' />
+            <div class='tap2' />
+          </div>
+          <div class='line3' />
+          <div class='point' />
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  const target = document.getElementById("pathCont")
+
+  const generatePoints = () => {
+    const number = Math.floor(Math.random() * 60);
+    const points = [];
+    let x = 0;
+    let y = 0;
+
+    for (let i = 0; i < number; i++) {
+      if (i % 2) {
+        x = Math.floor(Math.random() * 100);
+      } else {
+        y = Math.floor(Math.random() * 100);
+      }
+
+      points.push(`${x}% ${y}%`);
+    }
+
+    target.style.setProperty("--path", `polygon(${points.join(",")})`);
+
+    // console.log(`clip-path: polygon(${points});`);
+  };
+
+  setInterval(() => {
+    generatePoints();
+  }, 2000);
+
+  generatePoints();
+</script>
+
+<style>
+  main {
+		position: relative;
+		width: 100dvw;
+		height: 100dvh;
+		max-width: 1920px;
+		margin: auto;
+		padding: var(--b); /* space for the border */
+		box-sizing: border-box;
+		display: flex;
+		flex-flow: column;
+	}
+
+	main .backCont {
+		position: absolute;
+		width: 100dvw;
+		height: 100dvh;
+    max-width: 1920px;
+		margin: auto;
+		display: flex;
+	}
+
+	main .backCont .backComp {
+		position: absolute;
+		width: 100dvw;
+		height: 100dvh;
+    max-width: 1920px;
+		margin: auto;
+		display: flex;
+		background: #FFF0;
+    filter: blur(3px);
+	}
+
+	/* ============================== */
+
+  main .mainCont {
+    position: relative;
+    width: 96%;
+		height: 94%;
+		margin: auto;
+		display: flex;
+		flex-flow: column;
+		z-index: 10;
+  }
+
+  main .mainCont .card {
+    position: relative;
+    margin: auto;
+    padding: 3%;
+    display: flex;
+    flex-flow: column;
+    font-size: 16px;
+  }
+
+  /* ================ GLITCH ==================== */
+
+  main .mainCont .card .heroCont {
+    position: relative;
+    display: flex;
+    margin: auto;
+    z-index: 5;
+  }
+
+  main .mainCont .card .heroCont .pathCont {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 80%;
+    margin: auto;
+    z-index: 6;
+    background-color: var(--color-white);
+    transform: translate(-50%, -50%);
+    clip-path: var(--path);
+
+    animation: path 4s step-end infinite;
+  }
+
+  main .mainCont .card h1 {
+    position: relative;
+    margin: auto;
+		font-weight: 300;
+		text-align: center;
+		font-size: clamp(3em, 10vw, 7em);
+		font-family: 'Aileron';
+		color: var(--color-black);
+		z-index: 5;
+    animation: fontH1 2s step-end infinite;
+  }
+
+  main .mainCont .card .layers {
+    position: relative;
+  }
+
+  .layers::before,
+  .layers::after {
+    content: attr(data-text);
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+  }
+
+  .layers::before {
+    top: 5px;
+    left: 8px;
+    color: var(--color-red);
+    animation: position 7s step-end infinite, font 8s step-end infinite;
+  }
+
+  .layers::after {
+    top: 5px;
+    left: -10px;
+    color: var(--color-green);
+    animation: position 6s step-end infinite, font 9s step-end infinite;
+  }
+
+  /* ======== PATH ========= */
+
+  @-webkit-keyframes path {
+    0% {
+      opacity: 1;
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+    }
+    5% {
+      opacity: 0.7;
+    }
+    30% {
+      opacity: 1;
+      -webkit-transform: translate(-55%, -45%);
+              transform: translate(-55%, -45%);
+    }
+    45% {
+      opacity: 0.6;
+    }
+    60% {
+      opacity: 1;
+      -webkit-transform: translate(-45%, -55%);
+              transform: translate(-45%, -55%);
+    }
+    76% {
+      opacity: 0.4;
+    }
+    90% {
+      opacity: 0.9;
+    }
+    1%,
+    7%,
+    33%,
+    47%,
+    78%,
+    93% {
+      opacity: .5;
+    }
+    100% {
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+      opacity: 1;
+    }
+  }
+  @keyframes path {
+    0% {
+      opacity: 0;
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+    }
+    5% {
+      opacity: 1;
+    }
+    30% {
+      opacity: 0;
+      -webkit-transform: translate(-52%, -49%);
+              transform: translate(-52%, -49%);
+    }
+    45% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 1;
+      -webkit-transform: translate(-49%, -51%);
+              transform: translate(-49%, -51%);
+    }
+    76% {
+      opacity: 0;
+    }
+    90% {
+      opacity: 0;
+    }
+    1%,
+    7%,
+    33%,
+    47%,
+    78%,
+    93% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+    }
+  }
+
+
+  /* ======== POSITION AND OPACITY ========= */
+
+  @-webkit-keyframes position {
+    0% {
+      opacity: 0.1;
+      top: 5px;
+      left: 8px;
+    }
+    5% {
+      opacity: 0.7;
+    }
+    30% {
+      opacity: 0.4;
+      top: 7px;
+      left: 3px;
+    }
+    45% {
+      opacity: 0.6;
+    }
+    60% {
+      top: 9px;
+      left: -5px;
+    }
+    76% {
+      opacity: 0.4;
+    }
+    90% {
+      opacity: 0.8;
+    }
+    1%,
+    7%,
+    33%,
+    47%,
+    78%,
+    93% {
+      opacity: 0;
+    }
+    100% {
+      top: 5px;
+      left: 8px;
+    }
+  }
+  @keyframes position {
+    0% {
+      opacity: 0.1;
+      top: 5px;
+      left: 8px;
+    }
+    5% {
+      opacity: 0.7;
+    }
+    30% {
+      opacity: 0.4;
+      top: 7px;
+      left: 3px;
+    }
+    45% {
+      opacity: 0.6;
+    }
+    60% {
+      top: 9px;
+      left: -5px;
+    }
+    76% {
+      opacity: 0.4;
+    }
+    90% {
+      opacity: 0.8;
+    }
+    1%,
+    7%,
+    33%,
+    47%,
+    78%,
+    93% {
+      opacity: 0;
+    }
+    100% {
+      top: 5px;
+      left: 8px;
+    }
+  }
+
+  /* ========== FONTCHANGE ================= */
+
+  @-webkit-keyframes font {
+    0% {
+      font-weight: 100;
+      color: var(--color-red);
+      filter: blur(3px);
+    }
+
+    20% {
+      font-weight: 500;
+      color: var(--color-black);
+      filter: blur(0);
+    }
+
+    50% {
+      font-weight: 300;
+      color: var(--color-red);
+      filter: blur(2px);
+    }
+
+    60% {
+      font-weight: 700;
+      color: #23b2ff;
+      filter: blur(0);
+    }
+
+    90% {
+      font-weight: 500;
+      color: var(--color-red);
+      filter: blur(6px);
+    }
+  }
+  @keyframes font {
+    0% {
+      font-weight: 100;
+      color: var(--color-red);
+      filter: blur(3px);
+    }
+
+    20% {
+      font-weight: 500;
+      color: var(--color-black);
+      filter: blur(0);
+    }
+
+    50% {
+      font-weight: 300;
+      color: var(--color-red);
+      filter: blur(2px);
+    }
+
+    60% {
+      font-weight: 700;
+      color: #23b2ff;
+      filter: blur(0);
+    }
+
+    90% {
+      font-weight: 500;
+      color: var(--color-red);
+      filter: blur(6px);
+    }
+  }
+
+  /* -------------------------- */
+
+  @-webkit-keyframes fontH1 {
+    0% {
+      font-weight: 100;
+      color: var(--color-black);
+    }
+    20% {
+      font-weight: 500;
+      color: var(--color-black);
+    }
+    50% {
+      font-weight: 300;
+      color: var(--color-white);
+    }
+    55% {
+      font-weight: 300;
+      color: var(--color-black);
+    }
+    60% {
+      font-weight: 700;
+      color: var(--color-black);
+    }
+    90% {
+      font-weight: 500;
+      color: var(--color-black);
+    }
+    100% {
+      font-weight: 500;
+      color: var(--color-black);
+    }
+  }
+  @keyframes fontH1 {
+    0% {
+      font-weight: 100;
+      color: var(--color-black);
+    }
+    20% {
+      font-weight: 500;
+      color: var(--color-black);
+    }
+    50% {
+      font-weight: 300;
+      color: var(--color-white);
+    }
+    55% {
+      font-weight: 300;
+      color: var(--color-black);
+    }
+    60% {
+      font-weight: 700;
+      color: var(--color-black);
+    }
+    90% {
+      font-weight: 500;
+      color: var(--color-black);
+    }
+    100% {
+      font-weight: 500;
+      color: var(--color-black);
+    }
+  }
+
+  /* ================ GLITCH ==================== */
+
+  main .mainCont .card p {
+    width: 96%;
+    margin: 10px auto;
+    font-size: clamp(1em, 2vw, 1.3em);
+    text-align: center;
+		color: var(--color-black);
+    z-index: 5;
+  }
+
+  /* ================ BTN BACK ============== */
+
+  .mainCont .butonAction {
+    position: relative;
+    margin: 20px auto 50px auto;
+    padding: 10px 20px;
+    background-color: #FFF0;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    border: 1px solid var(--color-black);
+    text-decoration: none;
+    transition: 100ms 100ms ease-in;
+    cursor: pointer;
+  }
+
+  .mainCont .butonAction::before,
+  .mainCont .butonAction::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 0px;
+    height: 0px;
+    background-color: var(--color-black);
+    border-radius: 20px;
+    transition: 100ms 100ms ease-in;
+  }
+
+  .mainCont .butonAction:hover {
+    padding: 10px 60px;
+  }
+
+  .mainCont .butonAction:hover::before {
+    width: 5px;
+    height: 5px;
+  }
+
+  .mainCont .butonAction span {
+    width: 100%;
+    margin: auto;
+    color: var(--color-black);
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .mainCont .butonAction:hover p {
+    font-weight: 800;
+  }
+
+  /* -------------------------------- */
+
+  .mainCont .butonAction .separator1,
+  .mainCont .butonAction .separator2,
+  .mainCont .butonAction .separator3 {
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    width: 0%;
+    height: 10px;
+    margin: auto;
+    background-color: var(--color-white);
+    transition: 100ms 100ms ease-in;
+    z-index: 3;
+  }
+
+  .mainCont .butonAction .separator1 {
+    z-index: 1;
+  }
+
+  .mainCont .butonAction .separator2 {
+    height: 6px;
+    top: 0px;
+  }
+
+  .mainCont .butonAction .separator3 {
+    height: 6px;
+    top: -10px;
+  }
+
+  .mainCont .butonAction:hover .separator1 {
+    width: 40%;
+    left: 30%;
+  }
+
+  .mainCont .butonAction:hover .separator2,
+  .mainCont .butonAction:hover .separator3 {
+    width: 60%;
+    left: 20%;
+  }
+
+  .mainCont .butonAction .diagonal1Up,
+  .mainCont .butonAction .diagonal2Up {
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    width: 0px;
+    height: 5px;
+    margin: auto;
+    background-color: var(--color-black);
+    transform: rotate(-40deg);
+    transition: 100ms 100ms ease-in;
+    z-index: 2;
+  }
+
+  .mainCont .butonAction .diagonal2Up {
+    transform: rotate(40deg);
+  }
+
+  .mainCont .butonAction:hover .diagonal1Up {
+    left: 29%;
+    width: 15px;
+  }
+
+  .mainCont .butonAction:hover .diagonal2Up {
+    left: 63%;
+    width: 15px;
+  }
+
+  .mainCont .butonAction .lineUp {
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    width: 0%;
+    height: 1px;
+    margin: auto;
+    background-color: var(--color-black);
+    transition: 100ms 100ms ease-in;
+    z-index: 5;
+  }
+
+  .mainCont .butonAction:hover .lineUp {
+    left: 35%;
+    width: 30%;
+  }
+
+  /* =============== BOTTOM BAR =============== */
+
+  .mainCont .bottomBar {
+    position: relative;
+    width: 95%;
+    height: 10px;
+    margin: 5px auto;
+    display: flex;
+    overflow: hidden;
+    font-size: 16px;
+  }
+
+  .mainCont .bottomBar .line1 {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    width: 70%;
+    height: 1px;
+    background-color: var(--color-black);
+  }
+
+  .mainCont .bottomBar  .centerBlock {
+    position: absolute;
+    top: 0%;
+    left: 70%;
+    width: 10px;
+    height: 10px;
+    margin: auto;
+    display: flex;
+    z-index: 2;
+  }
+  .mainCont .bottomBar  .centerBlock .line2 {
+    position: absolute;
+    bottom: 0%;
+    left: -110%;
+    width: 30px;
+    height: 5px;
+    background-color: var(--color-black);
+    transform: rotate(-40deg);
+  }
+
+  .mainCont .bottomBar  .centerBlock .tap1 {
+    position: absolute;
+    right: -200%;
+    top: 0%;
+    width: 500%;
+    height: 30%;
+    background-color: var(--color-white);
+  }
+
+  .mainCont .bottomBar  .centerBlock .tap2 {
+    position: absolute;
+    right: -110%;
+    top: -90%;
+    width: 30px;
+    height: 10px;
+    border-radius: 200px;
+    background-color: var(--color-white);
+    transform: rotate(-40deg);
+  }
+
+  .mainCont .bottomBar .line3 {
+    position: absolute;
+    top: 30%;
+    right: 1%;
+    width: 28%;
+    height: 1px;
+    background-color: var(--color-black);
+  }
+
+  .mainCont .bottomBar .point {
+    position: absolute;
+    right: 0.3%;
+    top: 30%;
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-black);
+    border-radius: 100px;
+    transform: translate(-50%, -50%);
+  }
+
+  /* =========================== */
+  main .mainCont .card .titleCont {
+    position: absolute;
+    bottom: 15%;
+    left: 2.5%;
+    width: 65%;
+    height: 10px;
+    display: flex;
+    background:
+      repeating-linear-gradient(
+        60deg,
+        var(--color-white) 0%,
+        var(--color-red) 0.2%,
+        var(--color-red) 2%,
+        var(--color-white) 2.2%,
+        var(--color-white) 5%
+      );
+      opacity: .7;
+    z-index: 10;
+  }
+</style>

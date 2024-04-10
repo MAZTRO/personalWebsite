@@ -1,0 +1,139 @@
+---
+const { item, date } = Astro.props;
+---
+
+<section class="pointItem">
+  <h3>{item.title} <span>At: {item.subtitle}</span></h3>
+  <p class="dates">{`${new Date(item.fDate).toLocaleDateString()} - ${new Date(item.lDate).toLocaleDateString()} (${(date/12) < 1 ? (date) : (date/12).toFixed(1)} ${(date/12) < 1 ? 'Months' : 'Years'})`}</p>
+  <p>{item.description}</p>
+  <div class='bottomBar'>
+    <div class='line1' />
+    <div class='centerBlock'>
+      <div class='line2' />
+      <div class='tap1' />
+      <div class='tap2' />
+    </div>
+    <div class='line3' />
+    <div class='point' />
+  </div>
+</section>
+
+<style>
+  .pointItem {
+    width: 100%;
+    margin: 30px auto;
+    display: flex;
+    flex-flow: column;
+  }
+
+  .pointItem h3 {
+    width: 100%;
+    margin: 0 auto;
+    font-weight: 600;
+		text-align: start;
+		font-size: 1.5em;
+		font-family: "Mulish", sans-serif;
+		color: var(--color-black);
+  }
+
+  .pointItem h3 span {
+    font-size: 14px;
+  }
+
+  .pointItem p {
+    width: 95%;
+    margin: 0 auto;
+    font-weight: 300;
+		text-align: start;
+		font-size: 1rem;
+		line-height: 1rem;
+		font-family: "Mulish", sans-serif;
+		color: var(--color-black);
+  }
+
+  .pointItem p.dates {
+    font-weight: 600;
+    margin: 5px auto 10px auto;
+  }
+
+  /* ======================================= */
+
+  .bottomBar {
+    position: relative;
+    width: 95%;
+    height: 10px;
+    margin: 5px auto;
+    display: flex;
+    overflow: hidden;
+    font-size: 16px;
+  }
+
+  .bottomBar .line1 {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    width: 71%;
+    height: 1px;
+    background-color: var(--color-black);
+  }
+
+  .bottomBar  .centerBlock {
+    position: absolute;
+    top: 0%;
+    left: 70%;
+    width: 10px;
+    height: 10px;
+    margin: auto;
+    display: flex;
+    z-index: 2;
+  }
+  .bottomBar  .centerBlock .line2 {
+    position: absolute;
+    bottom: 0%;
+    left: -110%;
+    width: 30px;
+    height: 5px;
+    background-color: var(--color-black);
+    transform: rotate(-40deg);
+  }
+
+  .bottomBar  .centerBlock .tap1 {
+    position: absolute;
+    right: -200%;
+    top: 0%;
+    width: 500%;
+    height: 30%;
+    background-color: var(--color-white);
+  }
+
+  .bottomBar  .centerBlock .tap2 {
+    position: absolute;
+    right: -110%;
+    top: -90%;
+    width: 30px;
+    height: 10px;
+    border-radius: 200px;
+    background-color: var(--color-white);
+    transform: rotate(-40deg);
+  }
+
+  .bottomBar .line3 {
+    position: absolute;
+    top: 30%;
+    right: 0%;
+    width: 28%;
+    height: 1px;
+    background-color: var(--color-black);
+  }
+
+  .bottomBar .point {
+    position: absolute;
+    right: -0.5%;
+    top: 30%;
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-black);
+    border-radius: 100px;
+    transform: translate(-50%, -50%);
+  }
+</style>
