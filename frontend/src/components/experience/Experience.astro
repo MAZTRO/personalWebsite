@@ -10,10 +10,15 @@ import Jobs from './jobs/Jobs.astro'
   <div class='timeLineCont'>
     {
       data.map((item, idx) => {
+        const fDateY = new Date(item.fDate).getFullYear()
+        const lDateY = new Date(item.lDate).getFullYear()
+        const fDateM = new Date(item.fDate).getMonth()
+        const lDateM = new Date(item.lDate).getMonth()
+        const difTemp = (lDateM+12*lDateY)-(fDateM+12*fDateY) // Math.floor((lDate - fDate) / (1000*60*60*24))
         return (
           <div class={`pointCont point_${idx}`}>
             <Point />
-            <DataPoint item={item} />
+            <DataPoint item={item} date={difTemp} />
           </div>
         )
       })
@@ -46,13 +51,26 @@ import Jobs from './jobs/Jobs.astro'
   .experienceContainer .timeLineCont {
     position: relative;
     width: 90%;
-    max-height: (70dvh - 52px);
+    max-height: calc(70dvh - 52px);
     margin: 0 auto;
     display: flex;
     flex-flow: column;
     overflow-y: auto;
     overflow-x: hidden;
   }
+
+  @media screen and (max-width: 1024px) {
+    .experienceContainer {
+      margin: 20px auto;
+    }
+		.experienceContainer .timeLineCont {
+      position: relative;
+      width: 90%;
+      max-height: unset;
+      overflow-y: unset;
+      overflow-x: unset;
+    }
+	}
 
   .experienceContainer .timeLineCont .pointCont {
     position: relative;

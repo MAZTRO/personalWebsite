@@ -55,7 +55,6 @@ import CirclePI from "../components/personalInfo/CirclePI.astro"
     let y = 0;
 
     for (let i = 0; i < number; i++) {
-      // Alternate between x and y
       if (i % 2) {
         x = Math.floor(Math.random() * 100);
       } else {
@@ -67,7 +66,7 @@ import CirclePI from "../components/personalInfo/CirclePI.astro"
 
     target.style.setProperty("--path", `polygon(${points.join(",")})`);
 
-    console.log(`clip-path: polygon(${points});`);
+    // console.log(`clip-path: polygon(${points});`);
   };
 
   setInterval(() => {
@@ -94,15 +93,16 @@ import CirclePI from "../components/personalInfo/CirclePI.astro"
 		position: absolute;
 		width: 100dvw;
 		height: 100dvh;
+    max-width: 1920px;
 		margin: auto;
 		display: flex;
-		overflow: hidden;
 	}
 
 	main .backCont .backComp {
 		position: absolute;
 		width: 100dvw;
 		height: 100dvh;
+    max-width: 1920px;
 		margin: auto;
 		display: flex;
 		background: #FFF0;

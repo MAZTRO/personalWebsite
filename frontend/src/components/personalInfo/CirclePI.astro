@@ -39,8 +39,8 @@
 <style>
   .circleCont {
     position: absolute;
-    bottom: -40%;
-    left: -25%;
+    top: -50%;
+    left: -450px;
 
     width: auto;
     height: 100%;
@@ -49,6 +49,12 @@
     opacity: .5;
 
     z-index: 1;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .circleCont {
+      display: none;
+    }
   }
 
   .mainCircle {

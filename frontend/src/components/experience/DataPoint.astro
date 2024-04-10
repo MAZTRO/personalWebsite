@@ -1,10 +1,10 @@
 ---
-const { item } = Astro.props;
+const { item, date } = Astro.props;
 ---
 
 <section class="pointItem">
-  <h3>{item.title} - <span>{item.subtitle}</span></h3>
-  <p class="dates">{item.dates}</p>
+  <h3>{item.title} <span>At: {item.subtitle}</span></h3>
+  <p class="dates">{`${new Date(item.fDate).toLocaleDateString()} - ${new Date(item.lDate).toLocaleDateString()} (${(date/12) < 1 ? (date) : (date/12).toFixed(1)} ${(date/12) < 1 ? 'Months' : 'Years'})`}</p>
   <p>{item.description}</p>
   <div class='bottomBar'>
     <div class='line1' />
@@ -31,10 +31,13 @@ const { item } = Astro.props;
     margin: 0 auto;
     font-weight: 600;
 		text-align: start;
-		font-size: 1.5rem;
-		line-height: 1.5rem;
+		font-size: 1.5em;
 		font-family: "Mulish", sans-serif;
 		color: var(--color-black);
+  }
+
+  .pointItem h3 span {
+    font-size: 14px;
   }
 
   .pointItem p {
@@ -49,8 +52,8 @@ const { item } = Astro.props;
   }
 
   .pointItem p.dates {
-    font-weight: 500;
-    margin: 5px auto;
+    font-weight: 600;
+    margin: 5px auto 10px auto;
   }
 
   /* ======================================= */
