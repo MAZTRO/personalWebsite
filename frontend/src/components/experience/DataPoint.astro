@@ -5,7 +5,20 @@ const { item, date } = Astro.props;
 <section class="pointItem">
   <h3>{item.title} <span>At: {item.subtitle}</span></h3>
   <p class="dates">{`${new Date(item.fDate).toLocaleDateString()} - ${new Date(item.lDate).toLocaleDateString()} (${(date/12) < 1 ? (date) : (date/12).toFixed(1)} ${(date/12) < 1 ? 'Months' : 'Years'})`}</p>
-  <p>{item.description}</p>
+  <ul>
+    {
+      item.description.map((el) => (
+        <li><p>{el}</p></li>
+      ))
+    }
+  </ul>
+  <div class='tagsContiner'>
+    {
+      item.tags.map((el) => (
+        <p class='tag'>{el}</p>
+      ))
+    }
+  </div>
   <div class='bottomBar'>
     <div class='line1' />
     <div class='centerBlock'>
@@ -42,11 +55,10 @@ const { item, date } = Astro.props;
 
   .pointItem p {
     width: 95%;
-    margin: 0 auto;
+    margin: 10px auto;
     font-weight: 300;
 		text-align: start;
 		font-size: 1rem;
-		line-height: 1rem;
 		font-family: "Mulish", sans-serif;
 		color: var(--color-black);
   }
@@ -54,6 +66,43 @@ const { item, date } = Astro.props;
   .pointItem p.dates {
     font-weight: 600;
     margin: 5px auto 10px auto;
+  }
+
+  .pointItem ul {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column;
+    padding-inline-start: 25px;
+  }
+
+  .pointItem ul li {
+    margin: auto;
+  }
+
+  .pointItem ul li p {
+    width: 95%;
+    margin: 10px auto 5px 0;
+  }
+
+  /* ==================== */
+
+  .pointItem .tagsContiner {
+    width: 100%;
+    margin: 5px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .pointItem .tagsContiner p.tag {
+    width: auto;
+    margin: 5px;
+    padding: 3px 10px;
+    border-radius: 200px;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    font-size: 12px;
   }
 
   /* ======================================= */

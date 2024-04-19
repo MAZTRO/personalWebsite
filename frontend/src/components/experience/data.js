@@ -6,13 +6,39 @@ export const data = [
     lDate: 'Mar 31 2024',
     title: 'Full Stack Engineer',
     subtitle: 'Ozel producciones S.A.S',
-    description: 'I designed and optimized applications handling high user concurrency, including chat functionalities, interactive stores, and virtual fairs. I spearheaded improvements that reduced API request processing time from 3 minutes to 10 seconds by implementing asynchronous backend calls for email delivery and comprehensive metric gathering.',
+    description: [
+      `Designed and built a robust web application for the Colombian Ministry of Defense, Increased accessibility of housing services information for military and police personnel, Implemented comprehensive user tracking with Google Analytics and custom API metrics,Utilized ReactJS, NodeJS, Strapi, and PostgreSQL for development, Designed user-friendly interfaces for both program users and administrators.`,
+      `We perfectly copy the UI design that clients give us to the browser through a good CSS implementation so that each product looks just as the client wishes, my work with ReactJS and vanilla CSS allows me to be very flexible with all DOM elements when creating an application.`,
+      `I have created applications with which we can access the device's sensors from the browser, such as the camera or the inclination and direction sensors, to create applications that allow us to give a more immersive experience.`,
+      `With reusable templates and components, I've more than halved the time to deploy platforms to new clients, even if the design is totally different from one to another.`,
+
+    ],
+    tags: [
+      'ReactJs',
+      'TypeScript',
+      'NodeJS',
+      'Python (Django)',
+      'Postgres',
+      'MongoDB',
+      'CSS Vanilla',
+      'Tailwind',
+      'Strapi'
+    ]
   },
   {
     fDate: 'Mar 01 2020',
     lDate: 'Jun 30 2020',
     title: 'Full Stack Engineer',
     subtitle: 'SIM-TAC',
-    description: 'The entire interface was made in Vanilla JavaScript and Vanilla CSS, which allowed me to solidify my knowledge in the core of the languages and thus be able to learn the JS libraries more easily. Also the implementation of calls to a third-party API with Python to optimize the loading time of the graphs',
+    description: [
+      `Completely free project where we apply everything learned, developing an application to train people who want to develop their Trading skills. Our objective was to make a simple interface to help people better understand the world of Trading, for this we reduced the time that allowed the user to understand the graphs by giving them simple values from a pre-established database that helped them in the trading curve.`,
+    ],
+    tags: [
+      'HTML',
+      'Javascript',
+      'CSS Vanilla',
+      'Python (Django)',
+      'MySQL'
+    ]
   }
 ]
