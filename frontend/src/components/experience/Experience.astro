@@ -8,6 +8,7 @@ import Jobs from './jobs/Jobs.astro'
 <section class="experienceContainer">
   <h2>Work experience</h2>
   <div class='timeLineCont'>
+    <img src='/img/profilPic_BW.png' alt='profile-Pic' class='profilePic'>
     {
       data.map((item, idx) => {
         const fDateY = new Date(item.fDate).getFullYear()
@@ -71,6 +72,15 @@ import Jobs from './jobs/Jobs.astro'
       overflow-x: unset;
     }
 	}
+
+  .experienceContainer .timeLineCont .profilePic {
+    position: relative;
+    width: auto;
+    height: 100px;
+    object-fit: contain;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
 
   .experienceContainer .timeLineCont .pointCont {
     position: relative;

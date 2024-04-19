@@ -65,6 +65,12 @@ import Background from '../../Background.astro'
     cursor: pointer;
   }
 
+  @media screen and (max-width: 1024px) {
+    .jobsCont .butonAction {
+      margin: 10px auto 150px auto;
+    }
+  }
+
   .jobsCont .butonAction::before,
   .jobsCont .butonAction::after {
     content: '';
@@ -192,11 +198,12 @@ import Background from '../../Background.astro'
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 97dvw;
-    height: 96dvh;
+    width: 100dvw;
+    height: 100dvh;
     margin: auto;
     display: none;
     flex-flow: column;
+    background-color: var(--color-white);
     z-index: 100;
     transform: translate(-50%, -50%);
   }
