@@ -1,16 +1,14 @@
 ---
-import { Image } from 'astro:assets';
 import { data } from './data';
 import Point from './Point.astro'
 import DataPoint from './DataPoint.astro'
 import Jobs from './jobs/Jobs.astro'
-import ProfilPic from '../../assets/img/profilPic_BW.png'
 ---
 
 <section class="experienceContainer">
   <h2>Work experience</h2>
   <div class='timeLineCont'>
-    <Image src={ProfilPic} alt='profile-Pic' class='profilePic' />
+    <img src='/img/profilPic_BW.png' alt='profile-Pic' class='profilePic'>
     {
       data.map((item, idx) => {
         const fDateY = new Date(item.fDate).getFullYear()
