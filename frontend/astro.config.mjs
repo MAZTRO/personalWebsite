@@ -2,7 +2,8 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  server: { port: 3500, host: true},
+  server: { port: 3500, host: true },
+  devToolbar: { enabled: false },
   vite: {
     build: {
       rollupOptions: {
