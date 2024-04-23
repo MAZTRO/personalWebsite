@@ -226,6 +226,25 @@ import JobList from './JobsList.astro'
     z-index: 10;
   }
 
+  .jobsCont .modalClose::before {
+    content: 'Close';
+    position: absolute;
+    bottom: -80%;
+    left: 50%;
+    margin: auto;
+    padding: 3px 10px;
+    display: none;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    border-radius: 200px;
+    font-size: 12px;
+    transform: translate(-50%, 0%);
+  }
+
+  .jobsCont .modalClose:hover::before {
+    display: flex;
+  }
+
   @media screen and (max-width: 768px) {
     .jobsCont .modalClose {
       right: 7dvw;
