@@ -10,5 +10,17 @@ export const JOBS = [
       'Tailwind',
       'TypeScript',
     ]
+  },
+  {
+    name: 'Vital4You',
+    description: 'This project involved building a full-stack web application with separate admin and store interfaces. Leveraging Next.js and TypeScript, I collaborated with a teammate to create a seamless user experience for purchasing products from another store. The application simplifies the buying process, offering a user-friendly interface for both administrators and customers.',
+    image: 'img/projects/vital4you.png',
+    link: 'https://www.vital4you.xyz/',
+    code: '',
+    tags: [
+      'NextJs',
+      'Tailwind',
+      'TypeScript',
+    ]
   }
 ]

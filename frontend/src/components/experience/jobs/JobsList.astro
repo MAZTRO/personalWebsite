@@ -21,15 +21,18 @@ import { JOBS } from "./jobsData";
           </div>
 
           <div class='actions'>
-            <a href={ele.code} target='_blank' rel='noopener noreferrer'>
-              Code
-              <div class='separator1' />
-              <div class='separator2' />
-              <div class='separator3' />
-              <div class='diagonal1Up' />
-              <div class='diagonal2Up' />
-              <div class='lineUp' />
-            </a>
+            {
+              ele.code &&
+              <a href={ele.code} target='_blank' rel='noopener noreferrer'>
+                Code
+                <div class='separator1' />
+                <div class='separator2' />
+                <div class='separator3' />
+                <div class='diagonal1Up' />
+                <div class='diagonal2Up' />
+                <div class='lineUp' />
+              </a>
+            }
 
             <a href={ele.link} target='_blank' rel='noopener noreferrer'>
               Web
@@ -50,8 +53,7 @@ import { JOBS } from "./jobsData";
 <style>
   .card {
     width: 500px;
-    height: max-content;
-    margin: 10px;
+    margin: 20px;
     display: flex;
     flex-flow: column;
     border: 1px solid var(--color-black);

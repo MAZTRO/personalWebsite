@@ -4,7 +4,7 @@ const { item, date } = Astro.props;
 
 <section class="pointItem">
   <h3>{item.title} <span>At: {item.subtitle}</span></h3>
-  <p class="dates">{`${new Date(item.fDate).toLocaleDateString()} - ${new Date(item.lDate).toLocaleDateString()} (${(date/12) < 1 ? (date) : (date/12).toFixed(1)} ${(date/12) < 1 ? 'Months' : 'Years'})`}</p>
+  <p class="dates">{`${new Date(item.fDate).toLocaleDateString()} - ${item.lDate === 'today' ? "Today" : new Date(item.lDate).toLocaleDateString()}`} { item.lDate === 'today' ? "" : `(${(date/12) < 1 ? (date) : (date/12).toFixed(1)} ${(date/12) < 1 ? 'Months' : 'Years'})`}</p>
   <ul>
     {
       item.description.map((el) => (
