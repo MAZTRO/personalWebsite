@@ -185,6 +185,7 @@ import Linkedin from "../../assets/svg/Linkedin.astro"
     font-size: clamp(14px, 3vw, 20px);
     text-align: center;
     font-weight: 600;
+    color: var(--color-black);
   }
 
   .contactPopUp .iconsContyainer {
@@ -195,6 +196,7 @@ import Linkedin from "../../assets/svg/Linkedin.astro"
   }
 
   .contactPopUp .iconsContyainer .item {
+    position: relative;
     width: 40px;
     display: flex;
     margin: auto 10px;
@@ -215,6 +217,7 @@ import Linkedin from "../../assets/svg/Linkedin.astro"
     width: 0%;
     margin: 0 0 0 0;
     opacity: 0;
+    color: var(--color-black);
   }
   .contactPopUp:hover .iconsContyainer .item.email p {
     width: 100%;
@@ -239,8 +242,37 @@ import Linkedin from "../../assets/svg/Linkedin.astro"
     }
   }
 
-  .contactPopUp:hover .iconsContyainer .item.email p:hover {
-    text-decoration: underline;
+  .contactPopUp .iconsContyainer .item.email::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: -7px;
+    width: 5px;
+    height: 8px;
+    border: 1px solid var(--color-black);
+    background-color: var(--color-white);
+    border-radius: 2px;
+    opacity: 0;
+    z-index: 10;
+  }
+
+  .contactPopUp .iconsContyainer .item.email::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: -9px;
+    width: 5px;
+    height: 8px;
+    border: 1px solid var(--color-black);
+    background-color: var(--color-white);
+    border-radius: 2px;
+    opacity: 0;
+    z-index: 5;
+  }
+
+  .contactPopUp:hover .iconsContyainer .item.email::after,
+  .contactPopUp:hover .iconsContyainer .item.email::before{
+    opacity: 1;
   }
 
   .contactPopUp:hover .iconsContyainer .item.email p.copied::before {
