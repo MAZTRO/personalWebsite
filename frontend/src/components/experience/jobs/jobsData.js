@@ -22,5 +22,18 @@ export const JOBS = [
       'Tailwind',
       'TypeScript',
     ]
+  },
+  {
+    name: 'Print more than 10k Items',
+    description: 'This project tackles displaying a massive list (over 10,000 items) with smooth scrolling, filtering, and sorting. It achieves this by only rendering a small chunk (around 60 items) at a time, loading more on demand as the user scrolls, and utilizing a virtual DOM to efficiently manage the data without overwhelming the browser.',
+    image: 'img/projects/printer10k.png',
+    link: '',
+    code: 'https://github.com/MAZTRO/print_10k_items',
+    tags: [
+      'React',
+      'Tailwind',
+      'TypeScript',
+      'Node'
+    ]
   }
 ]

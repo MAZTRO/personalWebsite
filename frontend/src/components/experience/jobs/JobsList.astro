@@ -34,15 +34,18 @@ import { JOBS } from "./jobsData";
               </a>
             }
 
-            <a href={ele.link} target='_blank' rel='noopener noreferrer'>
-              Web
-              <div class='separator1' />
-              <div class='separator2' />
-              <div class='separator3' />
-              <div class='diagonal1Up' />
-              <div class='diagonal2Up' />
-              <div class='lineUp' />
-            </a>
+            {
+              ele.link &&
+              <a href={ele.link} target='_blank' rel='noopener noreferrer'>
+                Web
+                <div class='separator1' />
+                <div class='separator2' />
+                <div class='separator3' />
+                <div class='diagonal1Up' />
+                <div class='diagonal2Up' />
+                <div class='lineUp' />
+              </a>
+            }
           </div>
         </div>
       )
